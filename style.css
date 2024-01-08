@@ -1,0 +1,416 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Space Grotesk", sans-serif;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+:root {
+  --change: 25px;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.side-one {
+  height: 100%;
+  width: 28%;
+  background-image: url(images/bg-main-desktop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.side-two {
+  width: 72%;
+  height: 100%;
+  background: hsl(0, 0%, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-front,
+.card-back {
+  position: absolute;
+  content: "";
+  right: -29%;
+  top: 21%;
+  z-index: 3;
+  width: 400px;
+  height: 210px;
+  border-radius: 10px;
+  color: hsl(0, 0%, 100%);
+  box-shadow: 0 2px 30px 10px rgba(0, 0, 0, 0.1);
+}
+.card-front {
+  background-image: url(images/bg-card-front.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding-bottom: 20px;
+  position: relative;
+}
+.card-front::before {
+  position: absolute;
+  content: "";
+  width: 100px;
+  height: 50px;
+  top: 30px;
+  left: 40px;
+  background-image: url(images/card-logo.svg);
+  background-repeat: no-repeat;
+}
+.card-front .num {
+  width: 100%;
+  text-align: center;
+  font-size: 1.9em;
+  margin: 10px 0;
+}
+.card-front div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  text-transform: uppercase;
+}
+.card-back {
+  background-image: url(images/bg-card-back.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  right: -60%;
+  top: 53%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 70px;
+}
+.card-back span {
+  margin-top: 7px;
+}
+.card-details {
+  max-height: 420px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 450px;
+  gap: 20px;
+  transform: translateX(100px);
+}
+.card-details label {
+  color: hsl(278, 68%, 11%);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+.card-details .one,
+.card-details .two,
+.card-details .three {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+.card-details .three {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+}
+.card-details .three .input-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 60%;
+}
+.card-details .three .input-box-cvc {
+  width: 50%;
+  margin-left: -50%;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 4px;
+  flex-direction: column;
+  position: relative;
+}
+.card-details .three .input-box-cvc input {
+  width: 75%;
+}
+.card-details .three .input-box-cvc .password {
+  position: absolute;
+  content: "";
+  padding: 0 8px;
+  height: 16px;
+  border: solid 2px;
+  bottom: 52%;
+  right: 33%;
+  border-radius: 50%;
+  color: grey;
+  cursor: pointer;
+}
+.card-details .three .input-box-cvc .password::after {
+  position: absolute;
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: grey;
+  border-radius: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.card-details .three .input-box-cvc .password::before {
+  position: absolute;
+  content: "";
+  width: 4px;
+  height: var(--change);
+  background: grey;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transition: height 0.5s;
+}
+input {
+  width: 80%;
+  padding: 8px 10px;
+  color: hsl(278, 68%, 11%);
+  font-size: 17px;
+  font-weight: 400;
+  border-radius: 5px;
+  border: 2px solid hsl(270, 3%, 87%);
+  padding-left: 15px;
+  outline: 0;
+  caret-color: hsl(278, 94%, 30%);
+}
+input:focus {
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background: linear-gradient(hsl(0, 0%, 100%), hsl(0, 0%, 100%)) padding-box,
+    linear-gradient(50deg, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+}
+#month,
+#year {
+  width: 30%;
+}
+::placeholder {
+  color: hsl(270, 3%, 80%);
+}
+::-webkit-inner-spin-button {
+  display: none;
+}
+button {
+  width: 80%;
+  padding: 15px 0;
+  border: 0;
+  outline: 0;
+  border-radius: 8px;
+  background: hsl(278, 68%, 11%);
+  color: hsl(0, 0%, 100%);
+  text-transform: capitalize;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+button:active {
+  transform: scale(0.7);
+}
+.error {
+  color: hsl(0, 100%, 66%);
+  font-weight: 500;
+  font-size: 14px;
+}
+.completed {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 70%;
+  transform: translateX(-200px);
+  height: 300px;
+  gap: 15px;
+}
+.completed h2 {
+  font-size: 1.6em;
+  text-transform: uppercase;
+  color: hsl(278, 68%, 11%);
+}
+.completed span {
+  color: hsl(279, 6%, 55%);
+}
+.attribution {
+  position: absolute;
+  bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+.attribution a {
+  text-decoration: none;
+  color: hsl(278, 94%, 30%);
+}
+@media screen and (max-width: 768px) and (min-width: 230px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  .side-one {
+    height: 50%;
+    width: 100%;
+    background-image: url(images/bg-main-mobile.png);
+  }
+  .side-two {
+    width: 100%;
+    height: 95%;
+  }
+  .card-front,
+  .card-back {
+    left: 5%;
+    top: 50%;
+    z-index: 3;
+    width: 300px;
+    height: 160px;
+    border-radius: 5px;
+    color: hsl(0, 0%, 100%);
+    box-shadow: 0 2px 30px 10px rgba(0, 0, 0, 0.1);
+  }
+  .card-front {
+    background-image: url(images/bg-card-front.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 20px;
+    position: relative;
+    font-size: 12px;
+    z-index: 2;
+  }
+  .card-front::before {
+    width: 100px;
+    height: 50px;
+    top: 20px;
+    left: 24px;
+    background-image: url(images/card-logo.svg);
+    background-repeat: no-repeat;
+    background-size: 60%;
+  }
+  .card-front .num {
+    font-size: 1.8em;
+    margin: 7px 0;
+  }
+  .card-back {
+    right: 0%;
+    left: 20%;
+    top: 12%;
+    padding: 0 40px;
+    z-index: 1;
+  }
+  .card-back span {
+    margin-top: 1px;
+    font-size: 12px;
+  }
+  .card-details {
+    max-height: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    gap: 20px;
+    transform: translateX(0px);
+  }
+  .card-details label[for="name"] {
+    margin-left: -140px;
+  }
+  .card-details label[for="num"] {
+    margin-left: -170px;
+  }
+  .card-details .one,
+  .card-details .two,
+  .card-details .three {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 3px;
+  }
+  .card-details .three {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    height: 100px;
+  }
+  .card-details .three .input-box {
+    gap: 10px;
+    width: 55%;
+    margin-top: 10px;
+  }
+  .card-details .three .input-box-cvc {
+    width: 50%;
+    margin-left: -70%;
+  }
+  .card-details .three .input-box-cvc input {
+    width: 90%;
+    margin-top: 10px;
+  }
+  .card-details .three .input-box-cvc .password {
+    bottom: 20%;
+    right: 18%;
+  }
+  button {
+    width: 90%;
+  }
+  .error {
+    font-size: 12px;
+  }
+  .completed {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
+    transform: translateX(0px) translateY(-130px);
+  }
+  .attribution {
+    position: absolute;
+    bottom: 13px;
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 400px) {
+  .card-details .three .input-box-cvc {
+    width: 50%;
+    margin-left: -60%;
+  }
+}
+@media screen and (min-width: 490px) {
+  .card-details .three .input-box-cvc {
+    width: 50%;
+    margin-left: -50%;
+  }
+}
